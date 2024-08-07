@@ -27,8 +27,6 @@ def submit() -> str:
     author_name = request.form["author"]
 
     author_exists = db.session.query(Author).filter(Author.name == author_name).first()
-    print(author_exists)
-    # check if author already exists in db
     if author_exists:
         author_id = author_exists.author_id
         book = Book(author_id=author_id, title=title)
